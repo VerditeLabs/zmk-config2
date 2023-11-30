@@ -5,18 +5,8 @@
  */
 
 
-// Define layer numbers
-#define BASE 0
-#define BASE_QWERTY 1
-#define NAV_WORD 2
-#define NUM_WORD 3
-#define SYM_WORD 4
-#define NAV 5
-#define NUM 6
-#define SYM 7
-#define FUNC 8
-#define ADJUST 9
-#define LOWER 10
+#define BASELAYER 0
+#define MODLAYER 1
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -46,5 +36,16 @@ Base_layer {
                                        &kp TAB       &kp SPACE            &kp ENTER     &kp ENTER  &kp SPACE            &kp TAB
       >;
     };
+
+mod_layer {
+      label = "Mod";
+      bindings = <
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+                     &trans &trans &trans &trans &trans &trans 
+>;
+    };
+
   };
 };
