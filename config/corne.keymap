@@ -7,6 +7,8 @@
 
 #define BASE 0
 #define MODLAYER 1
+#define SHIFTLAYER 2
+#define NAVLAYER 3
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -25,10 +27,10 @@
 Base_layer {
       label = "Base";
       bindings = <
-&kp ESC   &kp Q          &kp W         &kp E         &kp R                &kp T         &kp Y      &kp U                &kp I         &kp O         &kp P           &kp ESC
-&kp BSPC  &hm_l LGUI A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &lt MODLAYER G         &lt MODLAYER H      &hm_shift_r RSHFT J  &hm_r RCTRL K &hm_r RALT L  &hm_r RGUI SEMI &kp DEL 
-&mo 1     &kp Z          &kp X         &kp C         &kp V                &kp B         &kp N      &kp M                &kp COMMA     &kp DOT       &kp SLASH       &mo 1
-                                       &kp TAB       &kp SPACE            &kp ENTER     &kp ENTER  &kp SPACE            &kp TAB
+&kp ESC   &kp Q          &kp W         &kp E         &kp R                &kp T            &kp Y            &kp U                &kp I         &kp O         &kp P           &kp ESC
+&kp BSPC  &hm_l LGUI A  &hm_l LALT S  &hm_l LCTRL D  &hm_shift_l LSHFT F  &lt MODLAYER G   &lt MODLAYER H   &hm_shift_r RSHFT J  &hm_r RCTRL K &hm_r RALT L  &hm_r RGUI SEMI &kp DEL 
+&mo NAVLAYER     &kp Z          &kp X         &kp C         &kp V                &lt SHIFTLAYER B &lt SHIFTLAYER N &kp M                &kp COMMA     &kp DOT       &kp SLASH       &mo NAVLAYER
+                                       &kp TAB       &kp SPACE            &kp ENTER        &kp ENTER        &kp SPACE            &kp TAB
       >;
     };
 
@@ -39,6 +41,30 @@ Mod_layer {
 &kp GRAVE &kp N1 &kp N2   &kp N3   &kp N4   &kp N5 &kp N6 &kp N7   &kp N8   &kp N9   &kp N0 &kp MINUS 
 &trans    &trans &trans   &trans   &trans   &trans &trans &trans   &trans   &trans   &trans &kp EQUAL 
 &trans    &kp LT &kp LBKT &kp LBRC &kp LPAR &trans &trans &kp RPAR &kp RBRC &kp RBKT &kp GT &kp BSLH 
+                     &trans &trans &trans &trans &trans &trans 
+      >;
+    };
+
+
+
+Shift_layer {
+      label = "Shift";
+      bindings = <
+&kp TILDE &kp EXCL &kp AT   &kp POUND   &kp DOLLAR   &kp PERCENT &kp CARET &kp AMPS   &kp STAR   &kp UNDER   &kp PLUS &kp MINUS 
+&trans    &trans &trans   &trans   &trans   &trans &trans &trans   &trans   &trans   &trans &kp EQUAL 
+&trans    &kp LT &kp LBKT &kp LBRC &kp LPAR &trans &trans &kp RPAR &kp RBRC &kp RBKT &kp GT &kp BSLH 
+                     &trans &trans &trans &trans &trans &trans 
+      >;
+    };
+
+
+
+Nav_layer {
+      label = "Nav";
+      bindings = <
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
+&trans &kp LEFT &kp UP &kp DOWN &kp RIGHT &trans &trans &kp LEFT &kp UP &kp DOWN &kp RIGHT &trans 
+&trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans &trans 
                      &trans &trans &trans &trans &trans &trans 
       >;
     };
